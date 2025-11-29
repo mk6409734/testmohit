@@ -11,6 +11,10 @@ import {
   SiTypescript,
   SiTailwindcss,
 } from "react-icons/si";
+import ThunderLines from "./components/ThunderLines";
+import AnimatedLines from "./components/AnimatedLines";
+import NextLines from "./components/AnimatedLines";
+import AnimatedBorderCard from "./components/AnimatedLines";
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -47,9 +51,9 @@ function App() {
   return (
     <>
       <Home />
-      <div className="flex h-screen w-full flex-col items-center justify-center">
-        <Button>Click me</Button>
-        <Shuffle
+      <div className="flex h-screen w-full flex-col items-center justify-center bg-gray-200">
+        {/* <Button>Click me</Button> */}
+        {/* <Shuffle
           text="Learn Tech Skills 
               That Actually Get You Jobs  & Grow Your Career Faster"
           shuffleDirection="right"
@@ -62,22 +66,24 @@ function App() {
           triggerOnce={true}
           triggerOnHover={true}
           respectReducedMotion={true}
-        />
-        <div className="h-full mx-auto overflow-hidden relative">
-          {/* Cards-based horizontal loop (cards are passed as `node` items) */}
-          {/* <LogoLoop
-            logos={cardItems}
-            speed={80}
-            direction="left"
-            logoHeight={96}
-            gap={24}
-            hoverSpeed={0}
-            scaleOnHover={true}
-            fadeOut
-            fadeOutColor="#242424"
-            ariaLabel="Featured cards"
-          /> */}
-        </div>
+        /> */}
+        <AnimatedBorderCard>
+          <div className="text-white">
+            <img
+              src="/design.png"
+              className="w-48 mx-auto mb-6 opacity-90"
+              alt="Decoration"
+            />
+
+            <h2 className="text-2xl font-semibold leading-tight">
+              Designing creative
+              <br />
+              user interfaces
+            </h2>
+
+            <p className="opacity-70 mt-2">by Dmytri Ivanov</p>
+          </div>
+        </AnimatedBorderCard>
       </div>
     </>
   );

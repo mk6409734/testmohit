@@ -3,6 +3,8 @@ import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import { RxCross1 } from "react-icons/rx";
 import { AiOutlineMenu } from "react-icons/ai";
+import "../App.css"
+import { delay } from "motion";
 export const Home = () => {
   const mainNavRef = useRef<HTMLDivElement | null>(null);
   const smallNavRef = useRef<HTMLDivElement | null>(null);
@@ -23,15 +25,68 @@ export const Home = () => {
   }, []);
 
   const fadeUp = {
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 70 },
     whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 1.6, ease: "easeOut" },
     viewport: { once: true, amount: 0.2 },
   };
+  const anim = {
+    animate: {
+      opacity: [1, 0],
+      x: [0, 454],
+      transition: {
+        duration: 1.6,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
+  const anim2 = {
+    animate: {
+      opacity: [0, 1],
+      y: [0, 454],
+      transition: {
+        duration: 1.6,
+        delay: 1.6,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
+  const anim3 = {
+    animate: {
+      opacity: [0, 1],
+      x: [454, 0],
+      transition: {
+        duration: 1.6,
+        delay: 1.6,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
+  const anim4 = {
+    animate: {
+      opacity: [1, 0],
+      y: [454, 0],
+      transition: {
+        duration: 1.6,
+        delay: 1.6,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
-    <div className="relative min-h-screen pb-20 md:p-0 overflow-hidden w-full bg-linear-to-br from-primary via-black to-primary z-20">
+    <div className="relative min-h-screen pb-20 md:p-0 overflow-hidden w-full my-gradient z-20">
       {/* gradiant ovelay  */}
-      <div className="absolute inset-0 -z-10 before:absolute before:left-1/4  before:top-0 before:h-[800px] before:w-[800px] before:rounded-full before:bg-black/30 before:blur-2xl"></div>
+      <div className="absolute inset-0 -z-10 before:absolute before:left-1/4  before:top-0 before:h-[800px] before:w-[800px] before:rounded-full before:bg-black/60 before:blur-2xl"></div>
+      <div className="absolute inset-0 -z-10 before:absolute before:left-0  before:top-0 before:h-[500px] before:w-[700px] before:bg-linear-to-br before:from-bg-primary from-10% before:to-black/90 to-90%  before:blur-2xl"></div>
+      <div className="absolute inset-0 -z-10 before:absolute before:right-0  before:bottom-0 before:h-[500px] before:w-[700px] before:bg-linear-to-br before:from-black/90 from-90% before:to-bg-primary to-20%  before:blur-2xl"></div>
 
       <div className="container mx-auto font-poppins">
         <nav
@@ -284,18 +339,48 @@ export const Home = () => {
               </div>
             </div>
           </div>
+          <div className="relative">
+            <div className="absolute -top-7 -left-25 w-[510px] h-px bg-[#26262e]/40 rounded-full ">
+              <motion.div
+                variants={anim}
+                animate="animate"
+                className="w-14 h-full bg-secondary rounded-full shadow-[1px_0_2px_rgba(0.233 277.117,0.8)]"
+              />{" "}
+            </div>
+            <div className="absolute -top-11 -right-11 w-px h-[510px] bg-gray-600/30 rounded-full ">
+              <motion.div
+                variants={anim2}
+                animate="animate"
+                className="w-full h-14 bg-secondary rounded-full shadow-[1px_0_2px_rgba(0.233 277.117,0.8)]"
+              />{" "}
+            </div>
+            <div className="absolute -bottom-7 -left-22 w-[510px] h-px bg-gray-600/30 rounded-full ">
+              <motion.div
+                variants={anim3}
+                animate="animate"
+                className="w-14 h-full bg-secondary rounded-full shadow-[1px_0_2px_rgba(0.233 277.117,0.8)]"
+              />{" "}
+            </div>
+            <div className="absolute -left-10 -top-12 w-px h-[510px] bg-gray-600/30 rounded-full ">
+              <motion.div
+                variants={anim4}
+                animate="animate"
+                className="w-full h-14 bg-secondary rounded-full shadow-[1px_0_2px_rgba(0.233 277.117,0.8)]"
+              />{" "}
+            </div>
 
-          <div className="w-[300px] h-[400px] rounded-lg bg-secondary  inset-shadow-sm inset-shadow-indigo-300">
-            <div className="flex flex-col">
-              <div className="w-[280px]  flex items-center">
-                <img src="./design.png" alt="" className="w-full h-full" />
-              </div>
-              <div className="flex flex-col items-start space-y-2 pl-7 text-lightbackground   py-3">
-                <h1 className="text-2xl font-normal">
-                  AI & Tech Skills with
-                  <br /> Real-World Training
-                </h1>
-                <p className="text-sm">by traincapetech</p>
+            <div className="w-[300px] h-[400px] rounded-lg bg-secondary  inset-shadow-sm inset-shadow-indigo-300">
+              <div className="flex flex-col">
+                <div className="w-[280px]  flex items-center">
+                  <img src="./design.png" alt="" className="w-full h-full" />
+                </div>
+                <div className="flex flex-col items-start space-y-2 pl-7 text-lightbackground   py-3">
+                  <h1 className="text-2xl font-normal">
+                    AI & Tech Skills with
+                    <br /> Real-World Training
+                  </h1>
+                  <p className="text-sm">by traincapetech</p>
+                </div>
               </div>
             </div>
           </div>
